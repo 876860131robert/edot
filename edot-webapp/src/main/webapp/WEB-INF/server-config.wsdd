@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!-- axis webservice config file -->  
+<deployment xmlns="http://xml.apache.org/axis/wsdd/"  
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">  
+  <handler type="java:org.apache.axis.handlers.http.URLMapper" name="URLMapper"/>  
+    
+  	<globalConfiguration>
+		<parameter name="sendMultiRefs" value="true" />
+		<parameter name="disablePrettyXML" value="true" />
+<!--		<parameter name="adminPassword" value="admin" />-->
+		<!-- <parameter name="attachments.Directory" value="attachments" />  -->
+		<parameter name="dotNetSoapEncFix" value="true" />
+		<parameter name="enableNamespacePrefixOptimization"
+			value="false" />
+		<parameter name="sendXMLDeclaration" value="true" />
+		<parameter name="sendXsiTypes" value="true" />
+		<parameter name="attachments.implementation"
+			value="org.apache.axis.attachments.AttachmentsImpl" />
+		<requestFlow>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="session" />
+			</handler>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter name="scope" value="request" />
+				<parameter name="extension" value=".jwr" />
+			</handler>
+		</requestFlow>
+	</globalConfiguration>
+    
+ <!--  <service name="GetUserInfoService" provider="java:RPC">  
+    <parameter name="className" value="com.asiainfo.aigov.web.webservice.edot.GetUserInfoService"/>  
+    <parameter name="allowedMethods" value="*"/>  
+  </service>
+   -->
+  <service name="HealthcareService" provider="java:RPC">  
+    <parameter name="className" value="com.asiainfo.aigov.web.webservice.healthcare.HealthcareService"/>  
+    <parameter name="allowedMethods" value="*"/>  
+  </service>
+  
+  
+  <transport name="http">  
+    <requestFlow>  
+        <handler type="URLMapper"/>  
+    </requestFlow>  
+  </transport>  
+</deployment>  

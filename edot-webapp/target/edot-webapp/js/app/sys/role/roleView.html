@@ -1,0 +1,87 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">角色管理</h1>
+</div>
+
+<div class="security-roles-view" data-ng-controller="roleController">
+    <form id="form" action="">
+        <div id="modal-edit" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                        <h4 class="modal-title">{{editItem.roleName ? editItem.roleName : '新增角色'}}</h4>
+                    </div>
+                    <div class="modal-body modal-roles">
+                        <div class="form-group">
+                            <label class="control-label" for="txtRoleName">名称</label>
+                            <input type="text" id="txtRoleName" autofocus="" name="txtRoleName" class="form-control" data-ng-model="editItem.roleName" focus-me="focusInput" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="txtRoleCode">标识</label>
+                            <input type="text" id="txtRoleCode" autofocus="" name="txtRoleCode" class="form-control" data-ng-model="editItem.roleCode" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-ng-click="save()" class="btn btn-success">保存</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       <div id="modal-edit-rights" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                        <h4 class="modal-title">权限配置</h4>
+                    </div>
+                    <div class="modal-body modal-roles">
+					    <span ng-if="doing_async">...loading...</span>
+					    <ul class="ztree" id="tree" tree-control="my_tree" z-nodes="zNodes" setting="setting" z-tree></ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-ng-click="saveRights()" class="btn btn-success">保存</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="wrapper-md">
+	        <div class="panel panel-default">
+				<div class="panel-heading">
+				  <button type="button" data-ng-click="loadCurrentRole()" class="btn m-b-xs btn-sm btn-success btn-addon"><i class="fa fa-plus"></i>新增</button>
+				   	<button type="button" data-ng-click="processChecked('delete')" class="btn m-b-xs btn-sm btn-danger btn-addon"><i class="fa fa-trash-o"></i>删除</button>
+				</div>
+		        <div class="table-responsive">
+		            <table class="table table-striped b-t b-light">
+				      <thead>
+				        <tr>
+				          <th style="width:20px;"><label class="i-checks m-b-none"><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /><i></i></label></th>
+				          <th><a data-ng-click="sort_by('roleName',$event)">名称</a></th>
+		                  <th style="width:200px">标识</th>
+		                  <th style="width:120px"></th>
+				        </tr>
+				      </thead>
+				      <tbody>
+				      	<tr data-ng-repeat="item in filteredItems | orderBy:sortingOrder:reverse">
+				          <td><label class="i-checks m-b-none"><input type="checkbox" id="cb-{{item.roleCode}}" data-ng-model="item.IsChecked" /><i></i></label></td>
+		                  <td class="item-title"> <a title="click to edit" href="" ng-click="loadCurrentRole(item.roleId)">{{item.roleName}}</a> </td>
+		                  <td>{{item.roleCode}}</td>
+		                  <td><a href="javascript:;" data-ng-click="loadRightsForm(item.roleId)"><span class="label bg-success">权限配置</span></a></td>
+				        </tr>
+				      </tbody>
+				    </table>
+		            <div class="table-item-empty" id="tr-spinner"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></div>
+		            <ul class="pagination" ng-if="items.length > itemsPerPage">
+		                <li data-ng-class="{disabled: currentPage == 0}"><a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a></li>
+		                <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()"><a data-ng-bind="n + 1">1</a></li>
+		                <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}"><a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a></li>
+		            </ul>
+		        </div>
+			</div>
+		</div>
+    </form>
+</div>

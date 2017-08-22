@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<groups xmlns="http://www.isdc.ro/wro">
+    <!--需要压缩的资源，name为压缩后的文件名-->
+    <group name='base'>
+        <css>/css/AdminLTE.css</css>
+        <js>/js/app.js</js>
+        <js>/js/demo.js</js>
+       
+        <js>/module/admin/user/userController.js</js>
+    </group>
+</groups>

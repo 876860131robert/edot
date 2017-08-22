@@ -1,0 +1,104 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">菜单管理</h1>
+</div>
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-controller="menuController">
+  <div class="col w-lg">
+    <div class="wrapper-md">
+      <div class="b-a bg-light dk r r-2x">
+        <span ng-if="doing_async">...loading...</span>
+        <ul class="ztree showIcon" id="tree" tree-control = "my_tree" z-nodes = "zNodes" setting = "setting" z-tree></ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="wrapper-md">
+      	<div class="panel panel-default">
+    <div class="panel-heading font-bold">
+      <button ng-click="try_add_a_branch()" class="btn m-b-xs btn-sm btn-success btn-addon"><i class="fa fa-plus"></i>新增</button>
+      <button data-ng-click="processChecked('delete')" class="btn m-b-xs btn-sm btn-danger btn-addon"><i class="fa fa-trash-o"></i>删除</button>
+    </div>
+    <div class="panel-body">    
+      <form id="form" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-parse ng-valid-date-disabled">      
+        <div class="form-group">
+          <label class="col-sm-2 control-label">上级菜单</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtParentMenuName" class="form-control" placeholder="" disabled="" data-ng-model="editItem.parentMenuName">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">菜单名称</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtMenuName" name="txtMenuName" class="form-control" data-ng-model="editItem.menuName">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">菜单链接</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtMenuUrl" name="txtMenuUrl" class="form-control" data-ng-model="editItem.menuUrl">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">菜单图标</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtMenuIco" name="txtMenuIco" class="form-control" data-ng-model="editItem.menuIco">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">排序</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtMenuOrder" name="txtMenuOrder" class="form-control" data-ng-model="editItem.menuOrder">
+          </div>
+        </div>        
+        <div class="line line-dashed b-b line-lg pull-in"></div>        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">类型</label>
+          <div class="col-sm-10">
+            <select class="form-control m-b" data-ng-model="editItem.menuType">
+              <option value="1">菜单</option>
+              <option value="2">功能点</option>
+            </select>
+          </div>
+        </div>        
+        <div class="line line-dashed b-b line-lg pull-in"></div>        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">是否显示</label>
+          <div class="col-sm-10">
+              <label class="checkbox-inline i-checks">
+                <input type="radio" value="1" data-ng-model="editItem.menuState"><i></i> 显示
+              </label>
+              <label class="checkbox-inline i-checks">
+                <input type="radio" value="0" data-ng-model="editItem.menuState"><i></i> 隐藏
+              </label>
+          </div>
+        </div>        
+        <div class="line line-dashed b-b line-lg pull-in"></div>        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">权限标识</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtMenuCode" name="txtMenuCode" class="form-control" data-ng-model="editItem.menuCode">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">描述</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtMenuDesc" name="txtMenuDesc" class="form-control" data-ng-model="editItem.menuDesc">
+          </div>
+        </div>        
+        <div class="line line-dashed b-b line-lg pull-in"></div>        
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <button data-ng-click="saveMenu()" class="btn btn-success">保存</button>
+            <button type="button"  data-ng-click="load()" class="btn btn-default">取消</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+    </div> 
+  </div>
+</div>

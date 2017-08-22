@@ -1,0 +1,25 @@
+body,html{ background-size: 100% 100%; background-image: url(../images/loginBg.jpg) ; background-repeat: no-repeat; background-attachment:fixed;}
+
+
+/*注册*/
+.login{ padding-top:5px; height: 100%;}
+.login .text-center{ text-align: center;}
+.login ul{margin:50px auto 0 auto; width: 90%; }
+.login ul li{ margin:10px 0; background: #fff;border-radius: 5px; border:1px solid #ddd; height: 40px; line-height: 40px; overflow: hidden;}
+.login ul li input{font-size: 16px; background-color: none; border: none; margin-top:-2px; outline: none;}
+.login .login-group{width: 89%; margin:25px auto 16px auto ; font-size: 20px;}
+.login button{border: none; border-radius: 2px;  font-size: 14px; padding:10px 10px; color: #fff;}
+
+.loginUser{ position: fixed; bottom:50px; width: 100%; text-align: center;  }
+.loginUser a{font-size: 20px; color: #333; }
+
+
+.reg-icon1{background-image:url(../images/reg-icon1.png); background-repeat:no-repeat; background-size: 20px 25px; height:35px; display: inline-block; background-position:10px 5px; text-indent: 40px; }
+.reg-icon4{background-image:url(../images/reg-icon4.png); background-repeat:no-repeat; background-size: 20px 25px; height:35px; display:inline-block; background-position:10px 5px; text-indent: 40px; }
+.reg-icon5{background-image:url(../images/reg-icon5.png); background-repeat:no-repeat; background-size: 20px 25px; height:35px; display:inline-block; background-position:10px 5px; text-indent: 40px; }
+
+
+.btn-enter{ width: 90%; margin:15px auto 15px auto ;}
+.btn-enter a{font-size: 18px; height: 40px; line-height: 40px; text-align: center; color: #fff; display: block; overflow: hidden; }
+
+.btn-bg-yellow{ background:url("../images/btn-bg1.jpg") repeat-x;  border-radius: 5px;  color: #fff; }

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd 
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd 
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd 
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	
+	<!-- Shiro主过滤器本身功能十分强大,其强大之处就在于它支持任何基于URL路径表达式的、自定义的过滤器的执行 -->
+	<!-- Web应用中,Shiro可控制的Web请求必须经过Shiro主过滤器的拦截,Shiro对基于Spring的Web应用提供了完美的支持 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- Shiro的核心安全接口,这个属性是必须的 -->
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login" />
+		<property name="successUrl" value="/admin"/>
+		<property name="filters">
+            <map>
+                <!--  <entry key="cas" value-ref="casFilter"/> -->
+                <entry key="authc" value-ref="formAuthenticationFilter"/>
+            </map>
+        </property>
+		<!-- Shiro连接约束配置,即过滤链的定义 -->
+		<!-- 下面value值的第一个'/'代表的路径是相对于HttpServletRequest.getContextPath()的值来的 -->
+		<!-- anon：它对应的过滤器里面是空的,什么都没做,这里.do和.jsp后面的*表示参数,比方说login.jsp?main这种 -->
+		<!-- authc：该过滤器下的页面必须验证后才能访问,它是Shiro内置的一个拦截器org.apache.shiro.web.filter.authc.FormAuthenticationFilter -->
+		<property name="filterChainDefinitions">
+			<value>
+				/css/** = anon 
+                /fonts/** = anon 
+                /img/** = anon  
+                /js/** = anon    
+                /static/** = anon
+                /tpl/** = anon
+                /vendor/** =anon                
+                /api/** = anon
+                
+				/login = authc
+				/logout = logout
+				/admin/** = user
+				/** = anon
+			</value>
+		</property>
+	</bean>
+	
+	<!-- 定义Shiro安全管理配置 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="authorizingRealm" />
+		<property name="cacheManager" ref="ehCacheManager" />
+        <property name="sessionManager" ref="sessionManager" />
+	</bean>	
+	
+	<!-- 使用缓存管理 -->
+	<bean id="ehCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+       	<property name="cacheManagerConfigFile" value="classpath:applicationContext-ehcache.xml" /> 
+	</bean>
+	
+	<!-- 使用SESSION管理 -->
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <property name="sessionDAO" ref="redisSessionDAO" />
+        
+        <!-- 会话超时时间，单位：毫秒  -->
+		<property name="globalSessionTimeout" value="1800000"/>
+		
+		<!-- 定时清理失效会话, 清理用户直接关闭浏览器造成的孤立会话   -->
+		<property name="sessionValidationInterval" value="1800000"/>
+ 		<property name="sessionValidationSchedulerEnabled" value="true"/>
+ 		
+		<property name="sessionIdCookie" ref="sessionIdCookie"/>
+		<property name="sessionIdCookieEnabled" value="true"/>
+    </bean>
+    
+   	<!-- 指定本系统SESSIONID, 默认为: JSESSIONID 问题: 与SERVLET容器名冲突, 如JETTY, TOMCAT 等默认JSESSIONID,
+	当跳出SHIRO SERVLET时如ERROR-PAGE容器会为JSESSIONID重新分配值导致登录会话丢失! -->
+	<bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+	    <constructor-arg name="name" value="AISESSIONID"/>
+	</bean>
+    
+    <!-- <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO"/> -->
+	
+	<!-- 使用redis管理 -->
+    <bean id="redisManager" class="com.asiainfo.aigov.core.shiro.cache.RedisManager"/>
+
+	<!-- 定义redisSessionDAO -->
+    <bean id="redisSessionDAO" class="com.asiainfo.aigov.core.shiro.session.RedisSessionDAO">
+        <property name="redisManager" ref="redisManager"/>
+        <property name="timeToLiveSeconds" value="1800000"/>
+    </bean>
+	
+	<!-- 定义Shiro生命周期处理器, applicationContext-mvc调用 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+	
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.apache.shiro.authz.UnauthorizedException">/500.html</prop>
+            </props>
+        </property>
+    </bean>
+	
+</beans>

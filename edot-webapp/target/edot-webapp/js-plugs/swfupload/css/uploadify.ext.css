@@ -1,0 +1,14 @@
+
+.swfFileInfo{
+	
+}
+
+.swfFileInfo a{
+	font-size: 13px;
+}
+
+.swfFileInfo img{
+	cursor: pointer;
+	margin-left: 2px;
+	width : 12px;
+}

@@ -1,0 +1,18 @@
+.prompt{ background: #f6f6f6; padding: 15px 10px 15px 13px;}
+.prompt h6{ margin-bottom:10px;font-size: 16px; color: #13a071; font-weight: 100; line-height: 30px; text-indent: 10px;}
+.prompt p{ color: #888888; font-size: 14px; }
+.prompt p span{ color: #dc1919;}
+
+.pay{}
+.pay p{ text-align: center; font-size: 15px; color: #888;}
+.pay h6{ margin-top:10px;text-align: center; font-size: 15px; color: #13a071;}
+.pay button{ margin-left:30%; margin-top:10px;text-align: center; color: #fff;font:18px Verdana,Arial,'微软雅黑'; background: #13a071; border-radius: 4px; padding: 6px 30px; border: 0;}
+.payCard{ text-align: center; margin-top: 20px;}
+
+
+
+
+
+
+
+

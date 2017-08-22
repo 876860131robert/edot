@@ -1,0 +1,35 @@
+  <!-- navbar -->
+  <div data-ng-include=" 'js/app/tpl/blocks/header.html' " class="app-header navbar">
+  </div>
+  <!-- / navbar -->
+
+  <!-- menu -->
+  <div data-ng-include=" 'js/app/tpl/blocks/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}">
+  </div>
+  <!-- / menu -->
+
+  <!-- content -->
+  <div class="app-content">
+    <div ui-butterbar></div>
+    <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside" ></a>
+    
+    <!-- navtabs -->
+ 	  <div data-ng-include=" 'js/app/navtabs/navtabs.html' ">
+    </div>
+    <!-- / navtabs -->
+    
+   
+  </div>
+  <!-- /content -->
+
+  <!-- aside right -->
+  <!-- / aside right -->
+
+  <!-- footer -->
+  <!-- / footer -->
+
+  <!-- <div data-ng-include=" 'tpl/blocks/settings.html' " class="settings panel panel-default">
+  </div> -->
+  
+
+  

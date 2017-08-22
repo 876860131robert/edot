@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.sxhealth.gov.cn/card" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="SearchCardService" targetNamespace="http://www.sxhealth.gov.cn/card">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.sxhealth.gov.cn/card" elementFormDefault="unqualified" targetNamespace="http://www.sxhealth.gov.cn/card" version="1.0">
+<xs:element name="CardInfoList" type="tns:CardInfo"/>
+<xs:element name="cardSearchResult" type="tns:CardSearchResult"/>
+<xs:element name="searchCardStatus" type="tns:searchCardStatus"/>
+<xs:element name="searchCardStatusResponse" type="tns:searchCardStatusResponse"/>
+<xs:element name="syncCardInfo" type="tns:syncCardInfo"/>
+<xs:element name="syncCardInfoResponse" type="tns:syncCardInfoResponse"/>
+<xs:element name="wsResult" type="tns:WSResult"/>
+<xs:complexType name="syncCardInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="username" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="cardInfo" type="tns:CardInfo"/>
+      <xs:element minOccurs="0" name="peopleInfo" type="tns:people"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="CardInfo">
+    <xs:sequence>
+      <xs:element name="kh" type="xs:string"/>
+      <xs:element minOccurs="0" name="fksj" type="xs:string"/>
+      <xs:element minOccurs="0" name="fkxlh" type="xs:string"/>
+      <xs:element minOccurs="0" name="yycsdm" type="xs:string"/>
+      <xs:element minOccurs="0" name="xpxlh" type="xs:string"/>
+      <xs:element minOccurs="0" name="yhkh" type="xs:string"/>
+      <xs:element minOccurs="0" name="mainCardType" type="xs:string"/>
+      <xs:element minOccurs="0" name="subCardType" type="xs:string"/>
+      <xs:element minOccurs="0" name="appType" type="xs:string"/>
+      <xs:element minOccurs="0" name="appVersion" type="xs:string"/>
+      <xs:element minOccurs="0" name="cardType" type="xs:string"/>
+      <xs:element minOccurs="0" name="cardModel" type="xs:string"/>
+      <xs:element minOccurs="0" name="cardID" type="xs:string"/>
+      <xs:element minOccurs="0" name="kzt" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="people">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="xm" type="xs:string"/>
+      <xs:element minOccurs="0" name="xb" type="xs:string"/>
+      <xs:element minOccurs="0" name="mzdm" type="xs:string"/>
+      <xs:element minOccurs="0" name="csrq" type="xs:string"/>
+      <xs:element minOccurs="0" name="sfzhm" type="xs:string"/>
+      <xs:element minOccurs="0" name="xnhkh" type="xs:string"/>
+      <xs:element minOccurs="0" name="address" type="xs:string"/>
+      <xs:element minOccurs="0" name="phone" type="xs:string"/>
+      <xs:element minOccurs="0" name="dwmc" type="xs:string"/>
+      <xs:element minOccurs="0" name="zjlx" type="xs:string"/>
+      <xs:element minOccurs="0" name="zjhm" type="xs:string"/>
+      <xs:element minOccurs="0" name="jkdah" type="xs:string"/>
+      <xs:element minOccurs="0" name="fyzhdm" type="xs:string"/>
+      <xs:element minOccurs="0" name="xldm" type="xs:string"/>
+      <xs:element minOccurs="0" name="zydm" type="xs:string"/>
+      <xs:element minOccurs="0" name="txdz" type="xs:string"/>
+      <xs:element minOccurs="0" name="ylfyzffs1" type="xs:string"/>
+      <xs:element minOccurs="0" name="ylfyzffs2" type="xs:string"/>
+      <xs:element minOccurs="0" name="ylfyzffs3" type="xs:string"/>
+      <xs:element minOccurs="0" name="sfzyxqsrq" type="xs:string"/>
+      <xs:element minOccurs="0" name="sfzzzrq" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="syncCardInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:WSResult"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="WSResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+      <xs:element name="resultCode" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="searchCardStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="xnhkh" type="xs:string"/>
+      <xs:element minOccurs="0" name="sfzhm" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="searchCardStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:CardSearchResult"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="CardSearchResult">
+    <xs:complexContent>
+      <xs:extension base="tns:WSResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="kxx" type="xs:string"/>
+          <xs:element minOccurs="0" name="sfzhm" type="xs:string"/>
+          <xs:element minOccurs="0" name="xm" type="xs:string"/>
+          <xs:element minOccurs="0" name="xnhkh" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="syncCardInfo">
+    <wsdl:part element="tns:syncCardInfo" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchCardStatusResponse">
+    <wsdl:part element="tns:searchCardStatusResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="searchCardStatus">
+    <wsdl:part element="tns:searchCardStatus" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="syncCardInfoResponse">
+    <wsdl:part element="tns:syncCardInfoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SearchCardService">
+    <wsdl:operation name="syncCardInfo">
+      <wsdl:input message="tns:syncCardInfo" name="syncCardInfo">
+    </wsdl:input>
+      <wsdl:output message="tns:syncCardInfoResponse" name="syncCardInfoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchCardStatus">
+      <wsdl:input message="tns:searchCardStatus" name="searchCardStatus">
+    </wsdl:input>
+      <wsdl:output message="tns:searchCardStatusResponse" name="searchCardStatusResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SearchCardServiceSoapBinding" type="tns:SearchCardService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="searchCardStatus">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="searchCardStatus">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="searchCardStatusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="syncCardInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="syncCardInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="syncCardInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SearchCardService">
+    <wsdl:port binding="tns:SearchCardServiceSoapBinding" name="CardSearchServiceImplPort">
+      <soap:address location="http://10.63.89.232:8080/ctzbmp/services/searchCardService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

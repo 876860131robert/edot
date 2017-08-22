@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 引入配置文件 -->
+	<properties resource="generatorConfig.properties"/> 
+	<!-- 数据库驱动  -->
+	<classPathEntry location="${db.oracle.kf.classPath}"/> 
+	
+	<!-- context 每个数据库有一个,id属性随意，保证全局唯一 -->
+	<context id="mysql" targetRuntime="MyBatis3" defaultModelType="flat">
+		<property name="javaFileEncoding" value="UTF-8"/>
+
+	    <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+	    <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+		<jdbcConnection 
+			driverClass="${db.oracle.kf.driverClass}" 
+			connectionURL="${db.oracle.kf.jdbcUrl}" 
+			userId="${db.oracle.public_web.user}" 
+			password="${db.oracle.public_web.password}" />
+
+		<javaModelGenerator 
+			targetPackage="${model}" 
+			targetProject="${project}" />
+
+		<sqlMapGenerator 
+			targetPackage="${mapxml}" 
+			targetProject="${resource}" />
+
+		<javaClientGenerator 
+			targetPackage="${dao}"
+			targetProject="${project}" 
+			type="XMLMAPPER" />
+
+        <table tableName="PUBLIC_DOCTOR" domainObjectName="" />
+
+	</context>
+	
+	<!-- oralce -->
+	<!-- <context id="oracle" targetRuntime="MyBatis3" defaultModelType="flat">
+		<property name="javaFileEncoding" value="UTF-8"/>
+
+	    <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+	    <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+		<jdbcConnection 
+			driverClass="${db.oracle.kf.driverClass}" 
+			connectionURL="${db.oracle.kf.jdbcUrl}" 
+			userId="${db.oracle.kf.user}" 
+			password="${db.oracle.kf.password}" />
+
+		<javaModelGenerator 
+			targetPackage="${model}" 
+			targetProject="${project}" />
+
+		<sqlMapGenerator 
+			targetPackage="${mapxml}" 
+			targetProject="${resource}" />
+
+		<javaClientGenerator 
+			targetPackage="${dao}"
+			targetProject="${project}" 
+			type="XMLMAPPER" />
+
+        <table tableName="ed_user_news_cat" domainObjectName="UserNewsCat" />
+
+	</context> --> 
+	
+</generatorConfiguration>

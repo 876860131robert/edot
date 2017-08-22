@@ -1,0 +1,53 @@
+{
+  "menus":[
+    {
+      "name": "系统设置 ",
+      "url": "",
+      "ico": "",
+      "subs":[
+        {"name":"菜单管理", "url":"sys#/menu", "ico":""},
+        {"name":"用户管理", "url":"sys#/operator", "ico":""},
+        {"name":"机构管理", "url":"sys#/org", "ico":""},
+        {"name":"角色管理", "url":"sys#/role", "ico":""},
+        {"name":"字典管理", "url":"sys#/dict", "ico":""}  
+      ]
+    },{
+      "name": "主题样式库",
+      "url": "",
+      "ico": "glyphicon glyphicon-calendar icon text-info-dker",
+      "subs":[
+        {"name":"AngularJS", "url":"index.html", "ico":""}   
+      ]
+    },{
+      "name": "demo",
+      "url": "",
+      "ico": "glyphicon glyphicon-calendar icon text-info-dker",
+      "subs":[
+        {"name":"用户管理", "url":"example/toUserList", "ico":""}   
+      ]
+    },{
+      "name": "内容管理",
+      "url": "",
+      "ico": "glyphicon glyphicon-calendar icon text-info-dker",
+      "subs":[
+         {"name":"信箱管理", "url":"admin/hotLine/toHotMailList", "ico":""}   
+        ,{"name":"城市声音管理", "url":"admin/hotLine/toCityVoiceList", "ico":""}   
+      ]
+    },{
+      "name": "功能设置",
+      "url": "",
+      "ico": "",
+      "subs":[
+        {"name":"模块管理", "url":"admin/feature#/model", "ico":""},
+        {"name":"资源管理", "url":"admin/feature#/advert", "ico":""}
+      ]
+    },{
+      "name": "系统管理",
+      "url": "",
+      "ico": "",
+      "subs":[
+        {"name":"客户端管理", "url":"admin/system/clientver/toList", "ico":""}   
+      ]
+    }
+  ]
+}

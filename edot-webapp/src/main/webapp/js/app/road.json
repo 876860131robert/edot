@@ -1,0 +1,45 @@
+﻿{
+	"data" : [{
+		"title":"市二号桥北口",
+		"url":"http://61.185.20.72:8181/hls/ehqbk/playlist.m3u8",
+		"img":"https://ydt.xy12345.cn/edot/img/07.png",
+		"mapImg":"img/lc07.png"
+		},{
+		"title":"市区凤凰广场",
+		"url":"http://61.185.20.72:8181/hls/sqfhgc/playlist.m3u8",
+		"img":"https://ydt.xy12345.cn/edot/img/08.png",
+		"mapImg":"img/lc08.png"
+		},{
+		"title":"市信息办楼顶",
+		"url":"http://61.185.20.72:8181/hls/rmgc/playlist.m3u8",
+		"img":"https://ydt.xy12345.cn/edot/img/09.png",
+		"mapImg":"img/lc09.png"
+		},{
+		"title":"人民中路消防队楼顶",
+		"url":"http://61.185.20.72:8181/hls/rmzlxfdld/playlist.m3u8",
+		"img":"UserModule/module/road/style/images/02.png",
+		"mapImg":"img/lc2.png"
+		},{
+		"title":"三号桥南",
+		"url":"http://61.185.20.72:8181/hls/shqn/playlist.m3u8",
+		"img":"UserModule/module/road/style/images/06.png",
+		"mapImg":"img/lc6.png"
+		},{
+		"title":"二号桥东",
+		"url":"http://61.185.20.72:8181/hls/ehqd/playlist.m3u8",
+		"img":"UserModule/module/road/style/images/04.png",
+		"mapImg":"img/lc4.png"
+		},{
+		"title":"清渭楼",
+		"url":"http://61.185.20.72:8181/hls/qwl/playlist.m3u8",
+		"img":"UserModule/module/road/style/images/05.png",
+		"mapImg":"img/lc5.png"
+		},{
+		"title":"人民西路防洪渠十字",
+		"url":"http://61.185.20.72:8181/hls/rmxlfhqsz/playlist.m3u8",
+		"img":"UserModule/module/road/style/images/03.png",
+		"mapImg":"img/lc3.png"
+		}
+		
+	]
+}

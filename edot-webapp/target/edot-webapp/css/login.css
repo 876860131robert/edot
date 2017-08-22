@@ -1,0 +1,105 @@
+
+
+.loginContent{ position:relative; height:459px; width:100%; margin-top:20px;}
+
+/* banner */
+.banner{height:459px;overflow:hidden; position:relative; z-index:1; }
+.banner .d1{width:100%;height:459px;display:block;position:absolute;left:0px;top:0; z-index:1;}
+.banner .d2{width:100%;height:30px;clear:both;position:absolute;z-index:2;left:40px;top:420px;}
+.banner .d2 ul{float:left;position:absolute;left:40%;top:0;margin:0 0 0 -96px;display:inline;}
+.banner .d2 li{width:17px;height:15px;overflow:hidden;cursor:pointer;/*background:url(../images/img1.png) no-repeat center;*/float:left;margin:0 3px;display:inline;}
+.banner .d2 li.nuw{background:url(../images/img1_1.png) no-repeat center;}
+
+
+.loginInput{ border-radius:5px 5px 0 0; overflow:hidden; position: absolute; z-index:10; width:380px;  height:400px; right:15%; bottom:0px; }
+.loginInput .loginBg{ background:#fff; width:430px; height:400px; position:absolute; bottom:60px; right:0; filter:alpha(opacity=95); /*IE滤镜，透明度50%*/-moz-opacity:0.95; /*Firefox私有，透明度50%*/opacity:0.95;/*其他，透明度50%*/ z-index:2;  }
+.loginInput .login{ z-index:3; color:#333; position:absolute; width:100%; }
+.loginInput .login h3{ height:40px; line-height:40px; color:#fff; text-indent:15px; letter-spacing:2px; font-size:18px; font-weight:500; width:100%;}
+.loginInput .login ol{ height:40px; line-height:40px; }
+.loginInput .login ol li{float:left;}
+.loginInput .login ol li a{color:#fff; padding:0 20px; font-size:18px; height:40px; line-height:40px; display:block; }
+.loginInput .login ol li a:hover,.loginInput .login ol li a.current{ background:#fff; color:#0ea54f; border-top:2px solid #0ea54f;}
+.loginInput .login ul{ width:90%; margin:0 auto; }
+.loginInput .login ul span{ display:block; height:30px; line-height:30px; font-size:16px; }
+.loginInput .login ul li{ margin:5px auto;}
+.loginInput .login ul li .Linput{ height:25px; padding:5px 0; border-radius:3px; border:1px solid #dedede; text-indent:10px; font-size:16px;}
+.loginInput .login .prompt{ color:#f60;}
+.loginInput .login .prompt i{ background:url(../images/cancel.gif) no-repeat; width:17px; height:17px; vertical-align:middle; margin-right:10px; display:inline-block;}
+.login .enter{ width: 90%; margin: 0 auto; border-radius: 5px; overflow: hidden;  text-align: center; margin-top:20px; }
+.login .enter a{ font-size:16px;  text-align:center; color:#fff; display: block; padding:7px 0;}
+.login .enter a:hover{ background: #2a79cf;}
+
+.login .otherLogin{ width: 90%; margin: 0 auto; margin-top:20px; }
+.login .otherLogin a{ margin-right: 10px; }
+
+.sina-icon{background-image:url(../images/l-icon1.png); background-repeat:no-repeat; height:20px; width:20px; display:inline-block; text-indent:0; background-position: 0 4px;  }
+.qq-icon{background-image:url(../images/l-icon2.png); background-repeat:no-repeat; height:20px; width:20px; display:inline-block; text-indent:0; background-position: 0 4px;   }
+
+.reset_icon{ background:url(../images/l-icon1.png) no-repeat; width:21px; height:21px; display:block; margin:3px 0 0 20px; float:left;}
+.prompt_icon{ background:url(../images/cancel.gif) no-repeat; width:18px; height:17px; display:inline-block;margin-top:6px; margin-right:10px; }
+
+
+
+.bottomBg{ border-top:1px solid #f3f3f3; text-align:center; padding-top:20px; }
+
+
+
+.bg-orange{ background: #e86d2e;}
+.bg-blue{ background: #2e8ae8;}
+
+.content{}
+.reg{ width: 80%; margin-left:25%;margin-top:50px; margin-bottom: 50px;}
+.reg ul li {  margin-bottom: 10px; line-height: 30px;}
+.reg ul li label{ width: 90px; margin-right: 10px; display: block; margin-bottom:inherit; text-align: right; font-size: 14px;}
+.reg p{padding:20px 0; text-align: center; width: 40%; line-height: 200%; font-size: 14px;}
+.reg span{color: #f00;}
+
+.enter-btn{}
+
+/*快递索引*/
+.quick{ color:#333; padding:0px 0 5px 0; margin-top:30px; margin-bottom: 20px; border-bottom: 1px solid #ddd;}
+.quick a{ color:#666;}
+.quick a:hover{ color:#f60;}
+
+.alert{padding:0 5px; margin-left:10px; margin-bottom: 0;}
+
+.prompt{margin-left: 90px;}
+
+
+.mycenter{ width: 1000px; margin: 0 auto;}
+
+.content .left{width:220px; border:1px solid #ddd;}
+.content .left h5{ background: #e86d2e; color: #fff; text-indent: 10px; font-size: 15px; height: 34px; line-height: 34px;}
+.content .left .subNav{ }
+.content .left .subNav ul{ width: 90%; margin: 0 auto; padding-bottom:20px; }
+.content .left .subNav li{  padding:10px 0; background: url("../images/arrow3.gif") no-repeat 0 15px; height: 35px; border-bottom: 1px dashed #efefef; text-indent: 12px; }
+.content .left .subNav li a{ display: block; }
+.content .left .subNav li a:hover{ display: block; color: #e86d2e; }
+.content .left .subNav li a.current{ color: #e86d2e; }
+.content .left .subNav dl { width: 90%; margin: 0 auto; padding-bottom:20px; }
+.content .left .subNav dl dt { border-bottom: 1px solid #ddd; line-height: 35px; height: 35px; }
+.content .left .subNav dl dd {padding:5px 0; height: 30px; border-bottom: 1px dashed #efefef; text-indent: 12px; }
+.content .left .subNav dl dd a.current{ color: #e86d2e; }
+
+.content .right{width:760px;}
+
+.myinfo{ padding:20px 0; width: 95%; margin: 0 auto 20px auto; line-height: 200%; font-size: 15px;  }
+.myinfo strong{  color: #f00; font-size: 20px;  }
+.myinfo ul li{  width: 90%; margin: 0 auto; border-bottom: 1px solid #ddd; padding:10px 0; }
+.myinfo ul li label{ width: 100px; display: inline-block; text-align: right; font-weight: 500;margin-right: 10px; color: #999;}
+
+.right .title{border-bottom: 3px solid #e9e9e9; line-height: 35px; margin-bottom: 10px;}
+.right .title h5{border-bottom: 3px solid #e86d2e; line-height: 35px; margin-bottom: -3px; font-size: 18px; }
+.right .title h5 i{ }
+.right .title .more{margin-top:12px; margin-right: 5px; }
+.right  span{color: #f00;}
+
+
+.m-t-15{margin-top:20px;}
+.m_l_10{margin-left:10px;}
+
+
+
+
+
+

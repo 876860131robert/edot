@@ -1,0 +1,82 @@
+.tax{
+    margin: 0 auto;
+    border-radius: 6px;
+    width:94%;
+    border:solid 1px #ddd;
+    background:#FFF;
+    font-size:16px;
+    line-height:30px;
+}
+.tax ol{
+    color:#666;
+    padding:7px 10px 5px 10px;
+    background:#eee;
+    border-bottom:solid 1px #ddd;
+}
+.tax ol i{ padding-right:5px; }
+.tax ol span{ color: #639f91;}
+.tax p{
+    line-height:42px;
+    font-size:16px;
+    color:#999;
+    padding:0 10px 0 10px;
+    display: block;
+}
+.tax p span{ color: #666; width: 75%; display: block; overflow: hidden; }
+.tax p em{ font-style: normal;}
+.tax p i{ padding-right:0; padding-left: 5px; font-size: 24px; color: #999;}
+.taxBorder{ border-bottom:solid 1px #eee;}
+.taxBorder01{ border: solid 1px #ddd;}
+.taxBorder02{ border: solid 1px #30abf3;}
+
+.taxReply{ position: relative;  margin: 0 auto; width: 92%;display: block; }
+.taxReply > dl{ margin-top: 10px;}
+.taxReply > dl > dt{ line-height: 20px; font-size: 14px; color: #888; float: left; text-align: center; width: 20%; padding-left: 15px; padding-right: 10px;}
+.taxReply > dl > dt > span{ border: solid 1px #ddd; text-align: center;display: inline-block; overflow: hidden;font-size: 16px; background: #fff; color: #fff; border-radius: 50%; height: 50px; width:50px;}
+.taxReply > dl > dt > span > i{ color: #888; font-size: 30px; line-height: 45px;}
+.taxReply > dl > dd{ float: left;width: 71%; }
+.taxReply > dl > dd > i{ color: #888; font-size: 22px; margin-right: 8px; }
+.taxReply > dl > dd > p{ overflow: hidden; display: block;font-size:16px; color:#999; width: 85%;}
+.taxReply > dl > dd > span{ }
+.taxReply > dl > dd > span > em{ font-style: normal; color: #888; font-size: 16px; }
+.taxReply > p{ padding: 10px 10px 10px 20px; font-size: 14px; }
+.taxReply > p > i{color: #639f91; font-size: 18px;}
+.taxReply > p > span{color: #639f91; font-size: 18px; display: block; }
+.taxReply > p > span > a > i{color: #888;font-size: 20px;}
+.taxReply > p > span > a{color: #639f91;  }
+
+.taxReplyBg{ position: absolute; bottom: -35px; right: 20px;}
+.taxReplyBg02{ position: absolute; top: -28px; left: 25px;}
+.taxReplyTxt{ margin-top: 8px;  font-size: 15px;padding: 5px 10px; width: 90%; }
+.taxReplyTxtBg01{ background: #eee; color: #666; }
+.taxReplyTxtBg02{ background: #f3fbff; color: #255c7d;}
+
+
+
+/*nfc充值*/
+.password_validation{width:94%; margin:0 auto; padding:0;}
+.password_validation ul{ text-align:center;}
+.password_validation ul li{ float:left; color:#5d5d5d; font-size:16px; width:33%; line-height:50px; }
+.password_validation ul li span{color: #ffa600;}
+.password_validationline{ background:#cdcdcd; height:8px; width:100%;}
+.password_validationCurrent{ background:#ffa600; height:8px;}
+.password_validationTitle{width:94%; margin:0 auto; padding:0; line-height:50px; color:#5d5d5d; font-size:14px;}
+.password_validationTitle span{ color:#ffa600; font-weight:bold;}
+
+.nfc{ padding: 10px;}
+.nfc p{ font-size: 16px; color: #333; }
+.nfc p input{ font-size: 16px; color: #333; text-indent: 10px; border-radius: 4px; border: solid 1px #ddd; height: 30px; line-height: 30px;}
+.nfc ul{}
+.nfc ul li{ width: 28%; height: 35px; line-height: 35px; text-align: center; font-size: 18px; margin: 10px 2% 0 2%; float: left;  border-radius: 4px; background: #fff;border: solid 1px #ddd;}
+.nfc ul li a{ display: block;color: #333;}
+.nfc ul li a:hover,.nfc ul li a.current{ background: #ff6600;color: #fff; border: 0;}
+.nfc button{ margin-left:6px;font:18px Verdana,Arial,'微软雅黑';background: #ffa600; color: #fff; text-align: center; display: block; border: 0; height: 35px; line-height: 35px; border-radius: 4px;}
+
+
+
+
+
+
+
+
+

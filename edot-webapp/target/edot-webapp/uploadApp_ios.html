@@ -1,0 +1,50 @@
+<!Doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name='HandheldFriendly'  content='True'/>
+    <meta name='viewport' content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no"/>
+	<script type="text/javascript" src="static/jquery-1.9.1.min.js"></script>
+
+    <style>
+        body,html{ background-image: url("images/download-bg.png"); background-color: #2EC2CF;background-repeat: no-repeat; background-size: 100% ;  width: 100%;height: 100%; padding:0; margin:0;}
+        .down{width: 100%; position: relative; height: 100%;}
+        .down .downBtn{width: 60%;position: absolute;bottom: 2em;left: 20%;text-align: center;z-index: 2;}
+        .down .downBtn1{width: 60%;position: absolute;bottom: 2em;right: 20%;text-align: center;z-index: 2;}
+        .down .downText p{width: 90%;  text-align: left;  margin: 0 auto; font-size: 16px; color: #333;}
+        .showTip{position:absolute;top:0;right:0;width:100%;height:100%;z-index: 99;}
+		.mask{background:#000000;opacity:0.7;width:100%;height:100%;overflow: hidden;}
+    </style>
+    <title>在咸阳12345客户端下载</title>
+</head>
+<body>
+<div class="showTip" id="showTip" style="display: none;">
+	<div class="mask" style=""><div style="padding:0 0 0 15px;"><img src="images/down_tip.png" width="100%"></div></div>
+</div>
+<div class="down">
+    <div class="downBtn"><a href="itms-services://?action=download-manifest&url=https://ydt.xy12345.cn/edot/upload/client/edot.plist"><img src="images/Btn01.png" width="100%"  /></a></div>
+</div>
+</body>
+<script type="text/javascript">
+	var h=window.innerHeight;
+	if(h<450){
+		h=h+60;
+	}
+	$(".mask").height(h);
+	//判断客户端微信版本    Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; chromeframe/30.0.1599.101; SLCC2  其中4.0为微信版本号  5.0或以上可以支付
+	var agent = navigator.userAgent;
+	agent = agent.toString();
+	var index = agent.indexOf('MicroMessenger/');
+	//其他浏览器
+	if (index == -1) {
+		//alert("请您使用微信浏览器发起支付");
+		$("#showTip").hide();
+		
+	}else{
+		$("#showTip").show();
+	}
+</script>
+</html>

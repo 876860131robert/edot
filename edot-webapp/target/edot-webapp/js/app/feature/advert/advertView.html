@@ -1,0 +1,168 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">广告管理</h1>
+</div>
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-controller="advertController">
+  <div class="col w-lg">
+    <div class="wrapper-md">
+      <div class="b-a bg-light dk r r-2x">
+        <span ng-if="doing_async">...loading...</span>
+        <ul class="ztree showIcon" id="tree" tree-control = "my_tree" z-nodes = "zNodes" setting = "setting" z-tree></ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="wrapper-md">
+      	<div class="panel panel-default">
+    <div class="panel-heading font-bold">
+      <button ng-click="try_add_a_branch()" class="btn m-b-xs btn-sm btn-success btn-addon"><i class="fa fa-plus"></i>新增</button>
+      <button data-ng-click="processChecked('del')" class="btn m-b-xs btn-sm btn-danger btn-addon"><i class="fa fa-trash-o"></i>删除</button>
+    </div>
+    <div class="panel-body">    
+      <form id="form" class="form-horizontal ng-pristine ng-valid ng-valid-date ng-valid-required ng-valid-parse ng-valid-date-disabled">      
+        <div class="form-group hidden" >
+          <label class="col-sm-2 control-label">所属栏目</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtParentName" class="form-control" placeholder="" disabled="">
+            <input type="hidden" class="form-control" data-ng-model="editItem.parentId">
+          </div>
+        </div>
+        
+         <div class="form-group">
+          <label class="col-sm-2 control-label">广告名称</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtName" name="txtName" class="form-control" data-ng-model="editItem.name">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">广告描述</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtDescribe" name="txtDescribe" class="form-control" data-ng-model="editItem.describe">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">定向地区</label>
+          <div class="col-sm-10">
+            <select id="selProvince" class="form-control m-b" onchange="angular.element(this).scope().changeSelect(1, this.value, true)">
+            	<option value="">请选择</option>
+            	<option value="610000">陕西省</option>
+              	<option value="000000">不限区域</option>
+            </select>
+            <select id="selCity" class="form-control m-b" onchange="angular.element(this).scope().changeSelect(2, this.value, true)">
+            </select>
+            <select id="selZone" class="form-control m-b" onchange="angular.element(this).scope().changeSelect(3, this.value, true)">
+            </select>
+			<span style="font-size:12px;color:red;">设置"不限区域"APP上所有地区都能访问，指定某个区域，只能在选定的范围内的用户有访问权限.</span><br>
+            <span style="font-size:12px;color:red;">一个区域最多只能添加9个广告.</span>
+            <input type="hidden" id="txtId" name="txtId" data-ng-model="editItem.id">
+            <input type="hidden" id="txtOriginalId" name="txtOriginalId" data-ng-model="editItem.originalId">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        
+       <div class="form-group " >
+          <label class="col-sm-2 control-label">投放日期</label>
+          <div class="col-sm-5" >
+             <input type="text" placeholder="开始日期" id="txtStartdate" name="txtStartdate" class="form-control" data-ng-model="editItem.startdate">
+          </div>
+<!--           <div class="col-sm-2" style="altext-align:center"> -->
+<!--              <span>至</span> -->
+<!--           </div> -->
+          <div class="col-sm-5" >
+             <input type="text" placeholder="结束日期" id="txtEnddate" name="txtEnddate" class="form-control" data-ng-model="editItem.enddate">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        
+        <div class="form-group " >
+          <label class="col-sm-2 control-label">投放时间</label>
+          <div class="col-sm-5" >
+             <input type="text" placeholder="开始时间" id="txtStarttime" name="txtStarttime" class="form-control" data-ng-model="editItem.starttime">
+          </div>
+          <div class="col-sm-5" >
+             <input type="text" placeholder="结束时间" id="txtEndtime" name="txtEndtime" class="form-control" data-ng-model="editItem.endtime">
+          </div>
+        </div>
+        
+        <div class="form-group hidden" >
+          <label class="col-sm-2 control-label">启用状态</label>
+          <div class="col-sm-10" >
+            <select class="form-control m-b" data-ng-model="editItem.status">
+              <option value="1">开启</option>
+              <option value="0">关闭</option>
+            </select>
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">广告附件</label>
+          <div class="col-sm-10">
+            <div id="file1"></div>
+            <div id="file2"></div>
+            <span style="font-size:12px;color:red;" id="msg">
+            <!-- (上传的首页头图标尺寸为720*260，广告资源图标尺寸为720*138，大小不超过300KB) -->
+            </span>
+            <input type="hidden" id="txtIcon" name="txtIcon" data-ng-model="editItem.icon"/>
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group hidden">
+          <label class="col-sm-2 control-label">广告类型</label>
+          <div class="col-sm-10">
+            <select class="form-control m-b" data-ng-model="editItem.type">
+              <option value="0">链接</option>
+              <option value="1">内置</option>
+            </select>
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in hidden"></div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">广告链接</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtContent" name="txtContent" class="form-control" data-ng-model="editItem.content">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">广告参数</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtParam" name="txtParam" class="form-control" data-ng-model="editItem.param">
+          </div>
+        </div>        
+        <div class="line line-dashed b-b line-lg pull-in hidden"></div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">广告排序</label>
+          <div class="col-sm-10">
+            <input type="text" id="txtOrderNo" name="txtOrderNo" class="form-control" data-ng-model="editItem.orderNo">
+          </div>
+        </div>        
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group hidden">
+          <label class="col-sm-2 control-label">广告级别</label>
+          <div class="col-sm-10">
+            <input type="hidden" id="txtLevelNo" name="txtLevelNo" class="form-control" data-ng-model="editItem.levelNo" disabled="">
+          </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in hidden"></div>
+        
+        <div class="form-group">
+          <div class="col-sm-4 col-sm-offset-2">
+            <button data-ng-click="saveAdvert()" class="btn btn-success">保存</button>
+            <button type="button" data-ng-click="load()" class="btn btn-default">取消</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+    </div> 
+  </div>
+</div>

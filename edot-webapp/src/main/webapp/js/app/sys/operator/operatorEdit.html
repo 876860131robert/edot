@@ -1,0 +1,39 @@
+
+
+	    	<div id="modal-user-edit" class="modal fade" data-ng-controller="operatorController">
+	    		<div class="panel-body">
+          <form role="form" class="ng-pristine ng-valid">
+            <div id="frm-user-edit">
+	                            <div class="form-group">
+	                                <label for="txtUserName">登录名</label>
+	                                <input type="text" id="txtUserName" name="txtUserName" class="form-control" data-ng-model="editItem.UserName" focus-me="focusInput" ng-disabled="!isNewItem" />
+	                            </div>
+	                            <div class="form-group">
+	                                <label for="txtEmail">电子邮箱</label>
+	                                <input type="text" id="txtEmail" name="txtEmail" class="form-control ltr-dir" data-ng-model="editItem.Email" />
+	                            </div>
+	                            <div class="form-group" data-ng-if="isNewItem">
+	                                <label for="txtPassword">密码</label>
+	                                <input type="password" class="form-control ltr-dir" id="txtPassword" name="txtPassword" data-ng-model="editItem.Password" />
+	                            </div>
+	                            <div class="form-group" data-ng-if="isNewItem">
+	                                <label for="txtConfirmPassword">确认密码</label>
+	                                <input type="password" class="form-control ltr-dir" id="txtConfirmPassword" name="txtConfirmPassword" />
+	                            </div>
+	                            <!-- <div class="form-group" data-ng-if="isNewItem">
+	                                <label>{{lbl.roles}}</label>
+	                                <div class="checkbox" data-ng-repeat="role in roles">
+	                                    <label>
+	                                        <input type="checkbox" data-ng-model="role.IsChecked" /> {{role.RoleName}}
+	                                    </label>
+	                                </div>
+	                            </div> -->
+	                        </div>
+	                        <div class="modal-buttons">
+	                            <button type="button" data-ng-click="saveUser()" class="btn btn-success">保存</button>
+	                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">取消</button>
+	                        </div>
+          </form>
+        </div>
+	           
+	        </div>

@@ -1,0 +1,48 @@
+
+.w300p{width: 300px;}
+.auto95{width: 95%; margin: 0 auto;}
+.mt10{margin-top: 10px;}
+.mb10{margin-bottom: 10px;}
+.ml10{margin-left:10px;}
+.mr10{margin-right:10px;}
+.fl{float:left;}
+.fr{float:right;}
+.clear{clear: both;}
+
+/*表格选中行颜色*/
+.table_tr_sel_color{background-color: #D9EDF7 !important;}
+
+.table-item-empty {
+    background: #fafafa;
+    /*margin-top: -20px;*/
+    border: 1px solid #e9e9e9;
+    border-top: none;
+    line-height: 40px;
+    text-align: center;
+    color: #aaa;
+    -moz-box-shadow: 0 1px 0 #f1f1f1;
+    -webkit-box-shadow: 0 1px 0 #f1f1f1;
+    box-shadow: 0 1px 0 #f1f1f1;
+} 
+
+.table td.item-title a:first-child {
+    color: #6581ad;
+    height: 100%;
+    /*line-height: 44px;
+    padding: 0 50px 0 15px;*/
+    display: block;
+    overflow: hidden;
+    -webkit-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.modal .modal-body {
+    margin: 0;
+    padding: 15px;
+    height: auto;
+    max-height: 76%;
+    overflow: hidden;
+    overflow-y: auto;
+}

@@ -1,0 +1,31 @@
+<!-- list -->
+<ul class="nav">
+  <li ng-repeat="a1 in menus" data-ng-class="{active: $index == 0}" >  
+    <a class="J_menuItem" ng-if="!hasSubs(a1)" href="{{a1.navigateUrl}}">
+      <i class="{{a1.imageUrl}}"></i>
+      <span class="font-bold ng-scope">{{a1.text}}</span>
+    </a>
+    
+    <a ng-if="hasSubs(a1)" href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="{{a1.imageUrl}}"></i>
+      <span class="font-bold">{{a1.text}}</span>
+    </a>
+    <ul ng-if="hasSubs(a1)" class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>
+          <span>{{a1.text}}</span>
+        </a>
+      </li>
+      <li ng-repeat="a2 in a1.childNodes">
+        <a class="J_menuItem" href="{{a2.navigateUrl}}">
+          <span>{{a2.text}}</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<!-- / list -->

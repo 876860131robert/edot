@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>edot</artifactId>
+		<groupId>com.asiainfo</groupId>
+		<version>1.1.0</version>
+		
+	</parent>
+	<artifactId>edot-webapp</artifactId>
+	<packaging>war</packaging>
+	<name>edot-webapp Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>com.asiainfo</groupId>
+			<artifactId>edot-server</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>edot-webapp</finalName>
+		<plugins>
+			<plugin>
+		     <groupId>org.apache.maven.plugins</groupId>
+		     <artifactId>maven-deploy-plugin</artifactId>
+		     <version>2.7</version>
+		     <configuration>
+		       <skip>true</skip>
+		     </configuration>
+		   </plugin>
+		</plugins>
+	</build>
+	
+	<!-- 添加私服依赖 -->
+	<repositories>
+		<repository>
+			<id>acme-nexus-releases</id>
+			<name>acme nexus</name>
+			<url>https://ai.lingwww.com/nexus/content/groups/public/</url>
+		</repository>
+		<!-- kettle repository -->
+		<repository>
+			<id>pentaho-releases</id>
+			<url>http://repository.pentaho.org/artifactory/repo/</url>
+		</repository>
+	</repositories>
+
+</project>
